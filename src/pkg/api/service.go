@@ -1,6 +1,7 @@
 package api
 
 import (
+	"chicuco/pkg/centers"
 	"chicuco/pkg/contacto"
 	"net/http"
 )
@@ -14,6 +15,7 @@ type Api struct {
 func (a *Api) Mount() *http.ServeMux {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /contactos", contacto.HandlerContactos) // Funcion para obtener el contacto
+	mux.HandleFunc("GET /centros", centers.HandlerCentros)      // Funcion para obtener los centros
 	return mux
 }
 
